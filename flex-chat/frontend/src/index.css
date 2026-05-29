@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin "daisyui/index.js" {
+  themes: all
+};
+@plugin "@tailwindcss/typography";
+
+/* Smooth scrolling globally */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbars but keep functionality - Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbars - Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbars - IE and older Edge */
+* {
+  -ms-overflow-style: none;
+}
+
+/* Prevent body overflow - keep viewport fixed */
+html, body {
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root element fills viewport */
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes pulseRing {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(1.08); }
+}
+
+@keyframes bgPulse {
+  0%, 100% { background-color: rgba(108, 92, 231, 0.18); }
+  50%       { background-color: rgba(108, 92, 231, 0.28); }
+}

@@ -1,0 +1,284 @@
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100%;
+  background-color: var(--color-sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-sidebar-border);
+  transition: width var(--transition-slow);
+  position: relative;
+  z-index: 100;
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+/* ===== Brand Header ===== */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-lg);
+  border-bottom: 1px solid var(--color-sidebar-border);
+  min-height: var(--header-height);
+}
+
+.brandIcon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brandIcon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-sidebar-bg);
+}
+
+.brandText {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.collapsed .brandText {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* ===== Navigation ===== */
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-sm);
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.navItem:hover {
+  background-color: var(--color-sidebar-hover);
+  color: var(--color-text-inverse);
+}
+
+.navItem.active {
+  background-color: var(--color-sidebar-active);
+  color: var(--color-text-inverse);
+}
+
+.navItem.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: var(--color-text-inverse);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.navLabel {
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.collapsed .navLabel {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.navBadge {
+  margin-left: auto;
+  background-color: var(--color-text-inverse);
+  color: var(--color-sidebar-bg);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  min-width: 20px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.collapsed .navBadge {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* ===== User Profile Section ===== */
+
+.userProfile {
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--color-sidebar-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  min-height: 72px;
+}
+
+.userProfile:hover {
+  background-color: var(--color-sidebar-hover);
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.userAvatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.userStatus {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-online);
+  border: 2px solid var(--color-sidebar-bg);
+  border-radius: var(--radius-full);
+}
+
+.userInfo {
+  flex: 1;
+  min-width: 0;
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.collapsed .userInfo {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.userName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  margin-bottom: 2px;
+}
+
+.userStatus {
+  font-size: var(--font-size-xs);
+  color: var(--color-online);
+  text-transform: capitalize;
+}
+
+.userChevron {
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.collapsed .userChevron {
+  opacity: 0;
+  width: 0;
+}
+
+/* ===== Toggle Button ===== */
+
+.toggleButton {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-sidebar-bg);
+  border: 1px solid var(--color-sidebar-border);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.toggleButton:hover {
+  background-color: var(--color-sidebar-hover);
+  border-color: var(--color-text-inverse);
+}
+
+.toggleButton svg {
+  width: 12px;
+  height: 12px;
+  color: var(--color-text-inverse);
+  transition: transform var(--transition-fast);
+}
+
+.collapsed .toggleButton svg {
+  transform: rotate(180deg);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: var(--z-fixed);
+    transform: translateX(0);
+    transition: transform var(--transition-slow);
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  
+  .toggleButton {
+    display: none;
+  }
+}

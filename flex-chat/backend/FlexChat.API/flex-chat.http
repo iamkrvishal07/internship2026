@@ -1,0 +1,6 @@
+@flex_chat_HostAddress = http://localhost:5222
+
+GET {{flex_chat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

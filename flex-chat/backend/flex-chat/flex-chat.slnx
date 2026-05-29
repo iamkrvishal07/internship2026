@@ -1,0 +1,7 @@
+<Solution>
+<Project Path="./flex-chart.csproj.user" />
+  <Project Path="../FlexChat.Data/FlexChat.Data.csproj" />
+  <Project Path="../FlexChat.Services/FlexChat.Services.csproj" />
+  <Project Path="../Infrastructure/Infrastructure.csproj" Id="3986540c-aa60-4c4f-9c4a-0e4efa470c97" />
+  <Project Path="flex-chart.csproj" />
+</Solution>
